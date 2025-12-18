@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "400500801702",
+    "project_id": "estate-app-project-1233",
+    "storage_bucket": "estate-app-project-1233.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400500801702:android:9834c6e05b86a76b157467",
+        "android_client_info": {
+          "package_name": "com.example.insta_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACjafIOWsProFzC1VU2CoSpinNxUviTyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

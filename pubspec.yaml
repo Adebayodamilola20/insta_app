@@ -1,0 +1,172 @@
+name: insta_app
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  curved_navigation_bar: ^1.0.6
+  flutter_staggered_grid_view: ^0.7.0
+  smooth_page_indicator: ^1.1.0
+  concentric_transition: ^1.0.0
+  firebase_core: ^4.2.0
+  firebase_auth: ^6.1.1
+  firebase_storage: ^13.0.3
+  get: ^4.7.2
+  cloud_firestore: ^6.0.3
+  lucide_icons: ^0.257.0
+  google_fonts: ^6.3.2
+  provider: ^6.1.5+1
+  intl: ^0.20.2
+  image_picker: ^1.2.0
+  share_plus: ^12.0.1
+  google_sign_in: ^6.1.0
+  chewie: ^1.13.0
+  video_player: ^2.10.0
+  lottie: ^3.3.2
+  sign_in_with_apple: ^7.0.1 
+  cupertino_icons: ^1.0.8
+  rename_app: ^1.6.5
+  http: ^1.6.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Add the flutter_launcher_icons package here, aligned with flutter_test:
+  flutter_launcher_icons: ^0.14.4 # Use your preferred version
+
+# The configuration block must be outside of dev_dependencies, aligned with it:
+flutter_launcher_icons:
+  image_path: "assets/images/Screenshot 2025-11-29 at 17.48.32.png"
+
+  # Android Configuration
+  android: "launcher_icon"
+  min_sdk_android: 21
+
+  # iOS Configuration
+  ios: true
+  remove_alpha_ios: true
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+ 
+ 
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/fur1.png
+    - assets/images/fur2.png
+    - assets/images/fur3.png
+    - assets/images/pop.png
+    - assets/images/991.png
+    - assets/images/IMG_2716.jpg
+    - assets/images/IMG_2717.jpg
+    - assets/images/IMG_2718.jpg
+    - assets/images/IMG_2719.jpg
+    - assets/images/IMG_2780.jpg
+    - assets/images/IMG_2781.jpg
+    - assets/images/IMG_2782.jpg
+    - assets/images/IMG_2783.jpg
+    - assets/images/IMG_2785.jpg
+    - assets/images/IMG_2790.jpg
+    - assets/images/IMG_2789.jpg
+    - assets/images/IMG_2791.jpg
+    - assets/images/IMG_2792.jpg
+    - assets/images/IMG_2788.jpg
+    - assets/images/IMG_2978.jpg
+    - assets/images/IMG_2979.jpg
+    - assets/images/IMG_2980.jpg
+    - assets/images/IMG_2981.PNG
+    - assets/images/IMG_2982.jpg
+    - assets/images/IMG_2983.jpg
+    - assets/images/IMG_2984.jpg
+    - assets/images/IMG_2985.jpg
+    - assets/images/IMG_2986.jpg
+    - assets/images/IMG_2987.jpg
+    - assets/images/IMG_2988.jpg
+    - assets/images/IMG_2989.jpg
+    - assets/images/IMG_2990.jpg
+    - assets/images/IMG_2991.jpg
+    - assets/images/IMG_2992.jpg
+    - assets/images/IMG_2993.jpg
+    - assets/images/IMG_2994.jpg
+    - assets/images/IMG_2995.jpg
+    - assets/images/IMG_2996.jpg
+    - assets/images/IMG_2997.jpg
+    - assets/images/IMG_2998.jpg
+    - assets/images/IMG_2999.PNG
+    - assets/images/tik-tok.png
+    - assets/images/twitter-2.png
+    - assets/images/instagram.png
+    - assets/images/social.png
+    - assets/images/http.mp4
+    - assets/images/Office Team Worker saying Hello.json
+    - assets/images/Ai based chatbot discuss.json
+    - assets/images/Ai-powered marketing tools abstract.json
+    - assets/images/Call Center Support Lottie Animation.json
+    - assets/images/Work from Home.json
+    - assets/images/Research Lottie Animation.json
+    - assets/images/search.png
+    - assets/images/apple-logo.png
+    - assets/images/facebook.png
+    - assets/images/Loading animation blue.json
+    - assets/images/Wave Lottie Animation.json
+    - assets/images/Screenshot 2025-11-29 at 17.48.32.png
+    - assets/images/Screenshot 2025-11-29 at 19.25.17.png
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
