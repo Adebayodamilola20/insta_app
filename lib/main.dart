@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         builder: (context, child) {
-          // This prevents text from scaling beyond reasonable limits
+         
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(
               textScaler: TextScaler.linear(

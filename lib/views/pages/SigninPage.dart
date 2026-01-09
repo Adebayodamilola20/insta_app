@@ -172,7 +172,6 @@ class _SigninpageState extends State<Signinpage>
   Future<void> resetPassword() async {
     final TextEditingController resetEmailController = TextEditingController();
     
-    // Pre-fill with current email if available
     if (emailcontroller.text.isNotEmpty) {
       resetEmailController.text = emailcontroller.text;
     }

@@ -6,8 +6,8 @@ class Userprovider extends ChangeNotifier {
   String newEmail;
   String firstname;
   String phonenumber;
-  // 🛑 FIX 1: Add a new property for the creation date
-  DateTime? createdAt; 
+  
+  DateTime? createdAt;
   bool _isLoading = false;
 
   Userprovider({
@@ -57,14 +57,14 @@ class Userprovider extends ChangeNotifier {
         'phonenumber': phone ?? "",
         'createdAt': FieldValue.serverTimestamp(),
       });
-      
+
       // Update local state
       userNAME = username;
       firstname = firstName;
       newEmail = email;
       phonenumber = phone ?? "";
-     
-      createdAt = DateTime.now(); 
+
+      createdAt = DateTime.now();
       notifyListeners();
     } catch (e) {
       print('Error saving user to Firestore: $e');
@@ -72,10 +72,9 @@ class Userprovider extends ChangeNotifier {
     }
   }
 
-  
   Future<void> loadUserData({required String userId}) async {
     _isLoading = true;
-    notifyListeners(); 
+    notifyListeners();
 
     try {
       DocumentSnapshot doc = await FirebaseFirestore.instance
@@ -85,25 +84,24 @@ class Userprovider extends ChangeNotifier {
 
       if (doc.exists) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-        
+
         userNAME = data['username'] ?? '';
         firstname = data['firstName'] ?? '';
         newEmail = data['email'] ?? '';
         phonenumber = data['phonenumber'] ?? '';
-        
+
         // 🛑 FIX 3: Fetch the 'createdAt' Timestamp and convert it to a DateTime
         Timestamp? timestamp = data['createdAt'];
-        createdAt = timestamp?.toDate(); 
+        createdAt = timestamp?.toDate();
       }
     } catch (e) {
       print('Error loading user data: $e');
     } finally {
       _isLoading = false;
-      notifyListeners(); 
+      notifyListeners();
     }
   }
 
- 
   void clearUserData() {
     userNAME = "";
     newEmail = "";
