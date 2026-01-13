@@ -171,18 +171,3 @@ void _scrollToBottom() {
   );
 }
 
-Scaffold(
-  floatingActionButton: _showBackToBottom 
-    ? FloatingActionButton(
-        mini: true, // Makes it small and sleek
-        backgroundColor: Colors.blue,
-        onPressed: _scrollToBottom,
-        child: const Icon(Icons.arrow_downward, color: Colors.white),
-      )
-    : null,
-  body: ListView.builder(
-    controller: _scrollController, // 👈 Don't forget to link the controller!
-    itemCount: _messages.length,
-    itemBuilder: (context, index) => _buildMessage(_messages[index]),
-  ),
-);
