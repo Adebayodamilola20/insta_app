@@ -112,4 +112,56 @@ class Userprovider extends ChangeNotifier {
   }
 }
 
-// Function to save the color hex string
+return Container(
+  constraints: BoxConstraints(
+    maxWidth: messageWidth.toDouble() - 50,
+  ),
+  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+  child: MarkdownBody(
+    data: text,
+    shrinkWrap: true,
+    fitContent: true,
+    styleSheet: MarkdownStyleSheet(
+      p: TextStyle(
+        fontSize: 17,
+        height: 1.4, // Line height
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      ),
+      strong: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      ),
+      h1: TextStyle(
+        fontSize: 20, // Reduced from 24
+        fontWeight: FontWeight.bold,
+        height: 1.2,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      ),
+      h2: TextStyle(
+        fontSize: 18, // Reduced from 20
+        fontWeight: FontWeight.bold,
+        height: 1.2,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      ),
+      listBullet: TextStyle(
+        fontSize: 17,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      ),
+      // Remove spacing between list items
+      blockSpacing: 4.0, // Reduced spacing
+      listIndent: 20.0, // Less indentation
+    ),
+    softLineBreak: true,
+  ),
+);
