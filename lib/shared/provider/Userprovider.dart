@@ -265,7 +265,7 @@ Widget _buildActionIcons(BuildContext context) {
         ),
         const SizedBox(width: 2),
         _buildAnimatedIcon(context, iconControllers[5], Icons.more_horiz_outlined, () {
-          // More options logic
+          // More optioons logic
         }),
       ],
     ),
@@ -289,3 +289,4 @@ Future<void> _selectVoice() async {
     "locale": "en-AU" // Australian English
   });
 }
+ 
