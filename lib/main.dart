@@ -79,3 +79,36 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+final TextEditingController _destinationController = TextEditingController();
+
+  Future<void> _searchDestination() async {
+    try {
+      List<Location> locations = await locationFromAddress(_destinationController.text);
+      if (locations.isNotEmpty) {
+        var dest = locations.first;
+        _addMarker(LatLng(dest.latitude, dest.longitude), "Destination");
+      }
+    } catch (e) {
+      print("Location not found: $e");
+    }
+  }
+
+  Position? _currentPosition;
+
+  // 1. Get Permission and Start Listening
+  void _listenToLocation() {
+    Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(
+        accuracy: LocationAccuracy.high, 
+        distanceFilter: 10 // Update every 10 meters
+      ),
+    ).listen((Position position) {
+      setState(() {
+        _currentPosition = position;
+        // Move the camera to follow the user
+        _mapController?.animateCamera(
+          CameraUpdate.newLatLng(LatLng(position.latitude, position.longitude))
+        );
+      });
+    });
+  }
