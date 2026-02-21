@@ -1729,9 +1729,13 @@ class _Widget_ThreeState extends State<Widget_Three> {
         valueListenable: selectedValueNotifier,
         builder: (context, selectedvalue, child) {
           return pages.elementAt(selectedvalue);
+          
         },
       ),
       bottomNavigationBar: Navbottom(),
     );
+  }
+  Future<void> _useClassStateMethod() async{
+    final pi
   }
 }
