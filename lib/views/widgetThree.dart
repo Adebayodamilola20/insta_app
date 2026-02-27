@@ -12,6 +12,7 @@ import 'package:insta_app/views/pages/Search.dart';
 import 'package:insta_app/views/pages/activities.dart';
 import 'package:insta_app/views/widget/Navbottom.dart';
 
+
 import 'package:lottie/lottie.dart';
 const List<String> availableCategories = [
   'Furniture',
