@@ -1736,7 +1736,4 @@ class _Widget_ThreeState extends State<Widget_Three> {
       bottomNavigationBar: Navbottom(),
     );
   }
-  Future<void> _useClassStateMethod() async{
-    final pi
-  }
 }
