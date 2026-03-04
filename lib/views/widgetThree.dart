@@ -335,6 +335,7 @@ class _CreatePageState extends State<CreatePage> {
                           decoration: BoxDecoration(
                             color: const Color(0xFFFF5722).withOpacity(0.1),
                             borderRadius: BorderRadius.circular(8),
+                            
                           ),
                           child: const Icon(
                             Icons.person_outline,
@@ -343,6 +344,7 @@ class _CreatePageState extends State<CreatePage> {
                           ),
                         ),
                         const SizedBox(width: 15),
+                        
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
