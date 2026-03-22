@@ -415,3 +415,37 @@ Future<void> _verifyOtp() async {
     );
   }
 }
+
+app.post("/send-otp", async (req, res) => {
+    const {phoneNumber} = req.body;
+
+    if(!phoneNumber){
+        return res.status(400).json({error: "phonneNumber is required"});
+    }
+    try {
+        const response = await axios.post(`${TERMII_BASE}/sms/otp/send`, {
+            api_key: API_KEY,
+            message_type: "NUMERIC",
+            to: phoneNumber,
+            from: SENDER_ID,
+            channel: "generic",
+            pin_attempt: 3,
+            pin_time_to_live: 5,
+            pin_length:  6,
+            pin_placeholder: "< 1234 >",
+            message_text: "Your ReloExprss verification code is < 1234 >",
+            pin_type: "NUMERIC",
+        });
+        return res.json({
+            success: true,
+            pinId: response.data.pinId,
+            message: "OTP sent successfully",
+        });
+    } catch (err) {
+        console.error("Send OTP error:", err.response?.data || err.message);
+        return res.status(500).json({
+            error: "Failed to send OTP",
+            details: err.response?.data,
+        });
+    }
+});
