@@ -137,7 +137,7 @@ class _SignupppState extends State<Signuppp> {
                     ),
                   ),
                   child: const Text(
-                    'Go to Sign In',
+                    ' Sign In',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -360,92 +360,3 @@ class _SignupppState extends State<Signuppp> {
     );
   }
 }
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-
-// Add this at the top of your state class
-String? _pinId; // Store pinId returned from backend
-static const String _backendUrl = 'https://reloexpress-backend.onrender.com';
-
-
-
-class OtpScreen extends StatefulWidget {
-  final String pinId;        // ← replaces verificationid
-  final String phoneNumber;
-  const OtpScreen({super.key, required this.pinId, required this.phoneNumber});
-  ...
-}
-
-Future<void> _verifyOtp() async {
-  setState(() => _isLoading = true);
-
-  try {
-    final response = await http.post(
-      Uri.parse('https://reloexpress-backend.onrender.com/verify-otp'),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
-        'pinId': widget.pinId,
-        'pin': _otpController.text.trim(),
-      }),
-    );
-
-    final data = jsonDecode(response.body);
-
-    if (response.statusCode == 200 && data['success'] == true) {
-      if (mounted) {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => const HomeDashboard()),
-          (route) => false,
-        );
-      }
-    } else {
-      setState(() => _isLoading = false);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Invalid code. Please try again.'),
-          backgroundColor: Colors.teal,
-        ),
-      );
-    }
-  } catch (e) {
-    setState(() => _isLoading = false);
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Network error'), backgroundColor: Colors.red),
-    );
-  }
-}
-
-app.post("/send-otp", async (req, res) => {
-    const {phoneNumber} = req.body;
-
-    if(!phoneNumber){
-        return res.status(400).json({error: "phonneNumber is required"});
-    }
-    try {
-        const response = await axios.post(`${TERMII_BASE}/sms/otp/send`, {
-            api_key: API_KEY,
-            message_type: "NUMERIC",
-            to: phoneNumber,
-            from: SENDER_ID,
-            channel: "generic",
-            pin_attempt: 3,
-            pin_time_to_live: 5,
-            pin_length:  6,
-            pin_placeholder: "< 1234 >",
-            message_text: "Your ReloExprss verification code is < 1234 >",
-            pin_type: "NUMERIC",
-        });
-        return res.json({
-            success: true,
-            pinId: response.data.pinId,
-            message: "OTP sent successfully",
-        });
-    } catch (err) {
-        console.error("Send OTP error:", err.response?.data || err.message);
-        return res.status(500).json({
-            error: "Failed to send OTP",
-            details: err.response?.data,
-        });
-    }
-});
